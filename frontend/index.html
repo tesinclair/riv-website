@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/styles.css" rel="stylesheet">
+    <script src="static/galleryShuffle.js" defer></script>
+    <title>Yuliy</title>
+</head>
+<body>
+    <script type="module" src="static/main.js"></script>
+    <h1 class="loading load">Loading</h1>
+    <nav class="nav">
+        <span class="title">
+            <h3>Yuliy</h3>
+        </span>
+        <ul>
+            <li><a change-text="Bio" href="#bio">
+                Bio
+                </a>
+            </li>
+            <li><a change-text="Gallery" href="#gallery">
+                Gallery
+                </a>
+            </li>
+            <li><a change-text="Contact" href="#contact">
+                Contact
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <main class="content">
+        <section>
+            <section id="bio" class="bio">
+            <h1>Biography</h1>
+            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit earum optio aliquam accusantium dolorum possimus consectetur repellat labore vero dicta.</span>
+            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minus iure ut dicta magnam maxime dolore soluta asperiores odio nostrum!</span>
+            </section>
+        <section id="gallery" class="gallery">
+            <div class="icon" onClick="changeCard('left')" id="card-toggle-left">
+                <img src="static/assets/arrow.svg" alt="left-toggle">
+            </div>
+            <div class="card-container">  
+                <div id="1" class="card active">
+                    <img src="static/assets/card1.png" alt="card1">
+                </div>
+                <div id="2" class="card">
+                    <img src="static/assets/card2.png" alt="card2">
+                </div>
+                <div id="3" class="card">
+                    <img src="static/assets/card3.png" alt="card3">
+                </div>
+                <div id="4" class="card">
+                    <img src="static/assets/card4.png" alt="card4">
+                </div>
+                <div id="5" class="card">
+                    <img src="static/assets/card5.png" alt="card5">              
+            </div>
+                <div class="icon" onClick="changeCard('right')" id="card-toggle-right">
+                    <div class="after-div"></div>
+                    <img src="static/assets/arrow.svg" alt="right-toggle">
+                </div> 
+            </div>           
+            </section>
+            <section id="contact" class="contact">
+                <h1>Contact</h1>
+                <span class="email">riv@example.com</span>
+                <div class="contact-box">
+                    <form>
+                        
+                    </form>
+                </div>
+            </section>
+        </section>
+        <footer class="socials">
+            <span class="insta"><a href="insta-link">instagram</a></span>
+            <span class="other"></span>
+        </footer>
+    </main>
+</body>
+</html>
