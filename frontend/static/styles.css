@@ -28,7 +28,7 @@ body{
     /*background-image: url('assets/card2.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;*/
-    background-color: white;
+    background-color: black;
 }
 
 section{
@@ -78,6 +78,16 @@ a:hover::before{
 /* Bio Styles */
 .bio{
 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+
+}
+
+/* Book Styles */
+.book{
+    display: grid;
+    grid-template-collumns: 1, 1fr, repeat(2, 1fr);
 }
 
 /* Contact Styles */
@@ -114,21 +124,48 @@ a:hover::before{
 }
 
 .gallery{
-    --img-size: 100px;
+    --img-size: calc(100px - .5rem / 2);
     display: grid;
     grid-template-columns: repeat(6, var(--img-size));
     grid-template-rows: repeat(3, var(--img-size));
-    gap:.25rem;
+    gap:.5rem;
 
     img{
         aspect-ratio: 1;
+        z-index: 0;
         object-fit: cover;
         grid-column: span 2;
+        border-radius: .5rem;
+        transition: filter 250ms, clip-path 250ms;
         clip-path: path('M 80 20 C 100 0 100 0 120 20 C 140 40 160 60 180 80 C 200 100 200 100 180 120 C 160 140 140 160 120 180 C 100 200 100 200 80 180 C 60 160 40 140 20 120 C 0 100 0 100 20 80 Z');
+        
 
         &:nth-of-type(4){
             grid-column: 2/ span 2;
         }
+
+        &:hover{
+            clip-path: path('M 0 0 C 100 0 100 0 200 0 C 200 50 200 50 200 80 C 200 100 200 100 200 120 C 200 150 200 150 200 200 C 100 200 100 200 0 200 C 0 150 0 150 0 120 C 0 100 0 100 0 80 Z');
+            z-index: 99;
+        }
+        &:not(:hover){
+            animation: zIndexHack: 250ms;
+        }
+    }
+}
+
+
+.gallery:hover > img {
+    filter: brightness(0.5) saturate(0.5);
+}
+
+.gallery > img:hover {
+    filter: brightness(1) saturate(1.5);
+}
+
+@keyframes zIndexHack{
+    0%, 100%{
+        z-index: 10;
     }
 }
 
