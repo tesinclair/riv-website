@@ -15,11 +15,10 @@ html{
 *{
     text-decoration: none;
 }
-.content{
-    display:grid;
-    grid-template-areas: "section" "footer";
-    grid-template-rows: 1fr 10em;
+.content:not(.content){
     margin-inline:5em;
+    display: flex;
+    flex-direction: column;
 }
 body{
     color: var(--font-color-primary);
@@ -75,11 +74,21 @@ a::before {
 a:hover::before{
     width:100%;
 }
+
 /* Bio Styles */
 .bio{
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+
+    *{
+	    text-align:center;
+	    font-size: 2rem;
+	    line-height: 3rem;
+	    padding-inline: 1em;
+	    padding-block: 2em;
+    }
 
 
 }
@@ -87,7 +96,43 @@ a:hover::before{
 /* Book Styles */
 .book{
     display: grid;
-    grid-template-collumns: 1, 1fr, repeat(2, 1fr);
+    grid-template-areas: 
+    "title title"
+    "img span1"
+    "span2 emb";
+    grid-template-rows: 1fr 1fr 5em;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+
+    h1{
+	    text-align:center;
+	    grid-area: title;
+    }
+    .img{
+	    height: 10em;
+	    width: 10em;
+    }
+
+    img{
+	    grid-area: img;
+    }
+
+    embed{
+	    grid-area: emb;
+    }
+
+    #span1{
+	    grid-area: span1;
+    }
+    #span2{
+	    grid-area: span2;
+    }
+
+    *:not(h1){
+	    padding: 2em;
+	    font-size: 1.5rem;
+    }
 }
 
 /* Contact Styles */
@@ -125,10 +170,13 @@ a:hover::before{
 
 .gallery{
     --img-size: calc(100px - .5rem / 2);
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(6, var(--img-size));
     grid-template-rows: repeat(3, var(--img-size));
     gap:.5rem;
+    align-items:center;
+    justify-items:center;
 
     img{
         aspect-ratio: 1;
