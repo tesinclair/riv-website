@@ -30,21 +30,23 @@
         </nav>
         <main class="content">
             <section id="bio" class="bio">
-                <h1>Biography</h1>
+		<h1><span>Biography</span></h1>
 		<div></div>
 		<div></div>
-                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit earum optio aliquam accusantium dolorum possimus consectetur repellat labore vero dicta.</span>
-                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minus iure ut dicta magnam maxime dolore soluta asperiores odio nostrum!</span>
+		<p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit earum optio aliquam accusantium dolorum possimus consectetur repellat labore vero dicta.</span></p>
+		<p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minus iure ut dicta magnam maxime dolore soluta asperiores odio nostrum!</span></p>
 		<div></div>
 		<div></div>
-                <span>More example test, i don't have emit on neovim, so I'm just writing instead of useing lorem. Hope you can forgive me. Bollocks!</span>
+		<p><span>More example test, i don't have emit on neovim, so I'm just writing instead of useing lorem. Hope you can forgive me. Bollocks!</span></p>
             </section>
             <section id="book" class="book">
                 <h1> Journey to Andromeda </h1>
-                <img class="img" src="static/assets/card1.png" alt="andromeda-book">
-                <span id="span1"> Let's put some info on the book here, so people know a bit, maybe the blurb??</span>
-                <embed class="img" src="static/assets/card2.png" alt="book-timelapse">
-                <span id="span2"> I think we should put some info on how you decided to make the book etc etc, since this is your opus 1 or whatever kinda thing yknow </span>
+		<div class="book-grid">
+                	<img class="img" src="static/assets/card1.png" alt="andromeda-book">
+                	<span id="span1"> Let's put some info on the book here, so people know a bit, maybe the blurb??</span>
+                	<span id="span2"> I think we should put some info on how you decided to make the book etc etc, since this is your opus 1 or whatever kinda thing yknow </span>
+                	<embed class="img" src="static/assets/card2.png" alt="book-timelapse">
+		</div>
             </section>
             <section id="gallery" class="gallery">
                 <img class="card" src="static/assets/card1.png" alt="card1">
@@ -58,17 +60,18 @@
             </section>
             <section id="contact" class="contact">
                 <h1>Contact</h1>
-                <span class="email">riv@example.com</span>
-                <div class="contact-box">
-                    <form>
-
+                <form class="contact-box" action="/submit" method="get">
+			<input class="email" type="email" name="email" value="">
+			<input class="name" type="text" name="name" value="">
+			<textarea class="description" name="desc" value=""></textarea>
+			<button type="submit" class="submit-btn"> Send </button>
                     </form>
-                </div>
             </section>
         </main>
         <footer class="socials">
-            <span class="insta"><a href="insta-link">instagram</a></span>
-            <span class="other"><a href="Dead-link">Other</a></span>
+        <span class="insta"><a href="insta-link">instagram</a></span>
+        <span class="email">riv@example.com</span>
+        <span class="other"><a href="Dead-link">Other</a></span>
         </footer>
     </body> 
 </html>

@@ -81,6 +81,7 @@ a:hover::before{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
+    padding-block-end: 50vh;
 
     *{
 	    text-align:center;
@@ -90,55 +91,94 @@ a:hover::before{
 	    padding-block: 2em;
     }
 
+    span{
+	    color: hsl(0 0% 100% / 0.2);
+	    background-size: 0% 100%;
+	    background-image: linear-gradient(90deg, var(--font-color-highlight), var(--font-color-highlight-under));
+	    background-clip: text;
+	    background-repeat: no-repeat;
+	    animation: scroll-reveal linear forwards;
+	    animation-timeline: view();
+    }
 
+    h1 span{
+	    animation-range-start: contain 25vh;
+	    animation-range-end: contain 30vh;
+    }
+
+    p span{
+	    animation-range-start: contain 25vh;
+	    animation-range-end: contain 50vh;
+    }
+    
+}
+
+@keyframes scroll-reveal{
+	to {
+		background-size: 100% 100%;
+	}
 }
 
 /* Book Styles */
 .book{
-    display: grid;
-    grid-template-areas: 
-    "title title"
-    "img span1"
-    "span2 emb";
-    grid-template-rows: 1fr 1fr 5em;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
-    align-items: center;
+    .book-grid{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	padding-inline: 4em;
+	justify-items: center;
+	align-items: center;
+
+	gap: 5em;
+
+    	.img{
+	    height: 10em;
+	    width: 10em;
+    	}
+    	*{
+	    font-size: 1.5rem;
+	    text-align: center;
+    	}
+    }
 
     h1{
 	    text-align:center;
-	    grid-area: title;
-    }
-    .img{
-	    height: 10em;
-	    width: 10em;
     }
 
-    img{
-	    grid-area: img;
+    *{
+	    padding-block-end: 50vh;
     }
 
-    embed{
-	    grid-area: emb;
-    }
-
-    #span1{
-	    grid-area: span1;
-    }
-    #span2{
-	    grid-area: span2;
-    }
-
-    *:not(h1){
-	    padding: 2em;
-	    font-size: 1.5rem;
-    }
 }
 
 /* Contact Styles */
 .contact{
     background-color: var(--background-color-final);
+	.contact-box{
+		display: grid;
+		grid-template-areas: 
+		"email email email name name"
+		"submit submit submit submit none"
+		"submit submit submit submit none"
+		"submit submit submit submit btn";
+		gap: 1em;
+		padding-inline: 3em;
+		padding-block: 2em;
+
+		.email{
+			grid-area: email;
+		}
+		.name{
+			grid-area: name;
+		}
+		.description{
+			grid-area: submit;
+		}
+		.submit-btn{
+			grid-area: btn;
+		}
+	}
 }
+
 
 /* Yuliy Name */
 .title{
@@ -169,14 +209,27 @@ a:hover::before{
 }
 
 .gallery{
-    --img-size: calc(100px - .5rem / 2);
+    --img-size: calc(10em - .5rem / 2);
     width: 100%;
     display: grid;
     grid-template-columns: repeat(6, var(--img-size));
     grid-template-rows: repeat(3, var(--img-size));
     gap:.5rem;
-    align-items:center;
-    justify-items:center;
+    align-content: center;
+    justify-content: center;
+    padding-block-end: 60vh;
+
+    &:hover{
+	    img{
+		    filter: brightness(0.5) saturate(0.5);
+
+		    &:hover{
+			    filter: brightness(1) saturate(1.5);
+		    }
+	    }
+
+    }
+
 
     img{
         aspect-ratio: 1;
@@ -185,7 +238,7 @@ a:hover::before{
         grid-column: span 2;
         border-radius: .5rem;
         transition: filter 250ms, clip-path 250ms;
-        clip-path: path('M 80 20 C 100 0 100 0 120 20 C 140 40 160 60 180 80 C 200 100 200 100 180 120 C 160 140 140 160 120 180 C 100 200 100 200 80 180 C 60 160 40 140 20 120 C 0 100 0 100 20 80 Z');
+        clip-path: path('M 120.96 30.24 C 151.2 0 151.2 0 181.44 30.24 C 211.68 60.48 241.92 90.72 272.16 120.96 C 302.4 151.2 302.4 151.2 272.16 181.44 C 241.92 211.68 211.68 241.92 181.44 272.16 C 151.2 302.4 151.2 302.4 120.96 272.16 C 90.72 241.92 60.48 211.68 30.24 181.44 C 0 151.2 0 151.2 30.24 120.96 Z');
         
 
         &:nth-of-type(4){
@@ -193,23 +246,16 @@ a:hover::before{
         }
 
         &:hover{
-            clip-path: path('M 0 0 C 100 0 100 0 200 0 C 200 50 200 50 200 80 C 200 100 200 100 200 120 C 200 150 200 150 200 200 C 100 200 100 200 0 200 C 0 150 0 150 0 120 C 0 100 0 100 0 80 Z');
+            clip-path: path('M 0 0 C 151.2 0 151.2 0 302.4 0 C 302.4 75.6 302.4 75.6 302.4 120.96 C 302.4 151.2 302.4 151.2 302.4 181.44 C 302.4 226.8 302.4 226.8 302.4 302.4 C 151.2 302.4 151.2 302.4 0 302.4 C 0 226.8 0 226.8 0 181.44 C 0 151.2 0 151.2 0 120.96 Z');
             z-index: 99;
+
         }
         &:not(:hover){
-            animation: zIndexHack: 250ms;
+            animation: zIndexHack 250ms;
         }
     }
 }
 
-
-.gallery:hover > img {
-    filter: brightness(0.5) saturate(0.5);
-}
-
-.gallery > img:hover {
-    filter: brightness(1) saturate(1.5);
-}
 
 @keyframes zIndexHack{
     0%, 100%{
