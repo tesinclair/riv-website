@@ -14,4 +14,16 @@ async def root(request: Request):
             request=request, name="index.html", context={}
             )
 
+@app.get("/msg-submit")
+async def submit(request: Request, email: str, name: str, desc: str):
+    return {'status': 200, 'message': 'OK'}
 
+@app.get("/shop")
+async def shop(request: Request):
+    return templates.TemplateResponse(
+            request=request, name="shop.html", context={}
+            )
+
+@app.get("/shop/submit")
+async def submit_shop(request: Request):
+    return {'status': 200, 'message': 'OK'}

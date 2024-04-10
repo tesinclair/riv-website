@@ -10,6 +10,7 @@
 html{
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 *{
@@ -35,9 +36,6 @@ section{
     padding: 1em;
     margin-block: 3em;
 }
-
-
-/*  Background Style*/
 
 
 /* Nav Bar  */
@@ -81,7 +79,6 @@ a:hover::before{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
-    padding-block-end: 50vh;
 
     *{
 	    text-align:center;
@@ -110,6 +107,7 @@ a:hover::before{
 	    animation-range-start: contain 15vh;
 	    animation-range-end: contain 50vh;
     }
+
     
 }
 
@@ -130,19 +128,35 @@ a:hover::before{
 
 	gap: 5em;
 
+	.left{
+		transform: translate(-100vw, 0);
+	}
+	.right{
+		transform: translate(100vw, 0);
+	}
+
     	.img{
 	    height: 10em;
 	    width: 10em;
+	    
     	}
     	*{
 	    font-size: 1.5rem;
 	    text-align: center;
+	    animation: scroll-book linear forwards;
+	    animation-timeline: view();
+	    animation-range: 0vh 40vh;
     	}
     }
 
     h1{
 	    text-align:center;
+	    padding-block: 50vh;
 	    font-size: 5rem;
+	    transform: translate(0, 100vh);
+	    animation: scroll-book linear forwards;
+	    animation-timeline: view();
+	    animation-range: 0vh 20vh;
     }
 
     *{
@@ -151,33 +165,42 @@ a:hover::before{
 
 }
 
+@keyframes scroll-book{
+	to {
+		transform: translate(0, 0);
+	}
+}
+
 /* Contact Styles */
 .contact{
     background-color: var(--background-color-final);
-	.contact-box{
-		display: grid;
-		grid-template-areas: 
-		"email email email name name"
-		"submit submit submit submit none"
-		"submit submit submit submit none"
-		"submit submit submit submit btn";
-		gap: 1em;
-		padding-inline: 3em;
-		padding-block: 2em;
+    h1{
+	padding-inline-start: 3em;
+    }
+    .contact-box{
+	padding: 5em;
+	display: grid;
+	grid-template-areas: 
+	"name name nothing other other "
+	"email email email other other"
+	"submit submit submit submit none"
+	"submit submit submit submit none"
+	"submit submit submit submit btn";
+	gap: 1em;
 
-		.email{
-			grid-area: email;
-		}
-		.name{
-			grid-area: name;
-		}
-		.description{
-			grid-area: submit;
-		}
-		.submit-btn{
-			grid-area: btn;
-		}
+	.email{
+		grid-area: email;
 	}
+	.name{
+		grid-area: name;
+	}
+	.description{
+		grid-area: submit;
+	}
+	.submit-btn{
+		grid-area: btn;
+	}
+    }
 }
 
 
@@ -264,41 +287,43 @@ a:hover::before{
     }
 }
 
-/* Arrow Icon */
 
-@keyframes btnMove{
-    from{transform: translate(0, 0);}
-    to{transform: translate(-1em, 0);}
-}
-.icon>img{
-    height: 5em;
-    width:5em;
-    animation: btnMove .5s ease-in-out alternate infinite;
-    filter: invert(100%) sepia(1%) saturate(5584%) hue-rotate(304deg) brightness(121%) contrast(89%);
-}
-.icon{
-    position:relative;
-    display: flex;
-    align-items: center;
-}
-/* Make arrow red on hover */
-.icon::before{
-    content: url('./Assets/arrow.svg');
-    position: absolute;
-    top: 0;
-    left: 0;
-    filter: invert(17%) sepia(52%) saturate(5737%) hue-rotate(355deg) brightness(97%) contrast(84%);
-    /*overflow: hidden;*/
-    height: 10%;
-    width: 100%;
-    transition: .5s;
-    z-index: 5;
-    animation: btnMove .5s ease-in-out alternate infinite;
-}
-.icon:hover::before{
-    width:100%;
-}
-.load{
-    display:none;
+
+/* =-=-=-=-=- SHOP STYLES -=-=-=-=-=-=- */
+
+/* GENERAL */
+
+.shop-main{
+	display: flex;
+	flex-direction: row;
+	min-height: 100%;
+
+	padding-inline: 15vw;
 }
 
+
+/* IMAGES */
+
+.shop-items{
+	display:grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 3em;
+
+	img{
+		height: 18em;
+		width: 15em;
+	}
+
+}
+
+/* TEXT */
+
+.shop-text{
+	display: flex;
+	flex-direction: column;
+	font-size: 3rem;
+	white-space: nowrap;
+	min-height: 100%;
+	justify-content: space-between;
+	margin-block: 1em;
+}

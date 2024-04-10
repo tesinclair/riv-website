@@ -4,11 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="static/styles.css" rel="stylesheet">
+        <script type="module" src="static/main.js"></script>
         <title>Yuliy</title>
     </head>
     <body>
-        <script type="module" src="static/main.js"></script>
-        <h1 class="loading load">Loading</h1>
         <nav class="nav">
             <span class="title">
                 <h3>Yuliy</h3>
@@ -26,6 +25,10 @@
                         Contact
                     </a>
                 </li>
+		<li><a change-text="Shop" href="/shop">
+			Shop
+		    </a>
+		</li>
             </ul>
         </nav>
         <main class="content">
@@ -42,10 +45,10 @@
             <section id="book" class="book">
                 <h1> Journey to Andromeda </h1>
 		<div class="book-grid">
-                	<img class="img" src="static/assets/card1.png" alt="andromeda-book">
-                	<span id="span1"> Let's put some info on the book here, so people know a bit, maybe the blurb??</span>
-                	<span id="span2"> I think we should put some info on how you decided to make the book etc etc, since this is your opus 1 or whatever kinda thing yknow </span>
-                	<embed class="img" src="static/assets/card2.png" alt="book-timelapse">
+                	<img class="left" src="static/assets/card1.png" alt="andromeda-book">
+			<span class="right" id="span1" >Let's put some info on the book here, so people know a bit, maybe the blurb??</span>
+                	<span class="left">I think we should put some info on how you decided to make the book etc etc, since this is your opus 1 or whatever kinda thing yknow </span>
+                	<embed class="right" src="static/assets/card2.png" alt="book-timelapse">
 		</div>
             </section>
             <section id="gallery" class="gallery">
@@ -63,7 +66,7 @@
                 <form class="contact-box" action="/submit" method="get">
 			<input class="email" type="email" name="email" value="">
 			<input class="name" type="text" name="name" value="">
-			<textarea class="description" name="desc" value=""></textarea>
+			<textarea class="description" name="desc" value="" rows="20"></textarea>
 			<button type="submit" class="submit-btn"> Send </button>
                     </form>
             </section>
