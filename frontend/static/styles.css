@@ -103,7 +103,7 @@ a:hover::before{
     }
 
     p span{
-	    animation-range: 60vh contain;
+	    animation-range: 60vh normal;
     }
 
     
@@ -178,20 +178,40 @@ a:hover::before{
     }
     .contact-box{
 
-	.contact-item{
-		margin-block: 3em;
+        .contact-item{
+            margin-block: 1em;
+            padding: .25rem;
+            border-radius: 0.5em;
+            border: none;
+            border-bottom: 2px solid white;
+            color: var(--font-color-primary);
+            background-color: rgba(0, 0, 0, 0);
+        }
 
-		&:not(.description){
-			border-radius: 3em;
-		}
-	}
+	    input{
+            height: 2em;
+            width: 4em;
+            transition: width 200ms linear;
+
+            &:autofill{
+                background-color: rgba(0, 0, 0, 0);
+                color: var(--font-color-primary);
+                
+            }
+
+            &:focus{
+                width: 100%;
+            }
+	    }
 
         margin-inline: 30vw;
-	background-color: var(--background-color-mid);
-	padding: 5em;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+        border-radius: 3em;
+	    background-color: var(--background-color-mid);
+	    display: flex;
+        padding-block: 3em;
+        padding-inline: 4em;
+	    flex-direction: column;
+
 	
     }
 }
