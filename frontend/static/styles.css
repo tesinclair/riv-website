@@ -4,7 +4,7 @@
     --font-color-highlight: #810000;
     --font-color-highlight-under: #db0000;
     --background-color-main: #282828aa;
-    --background-color-mid: #363636aa;
+    --background-color-mid: rgba(56, 56, 56, 0.3);
     --background-color-final: #3f3f3faa;
 }
 html{
@@ -173,33 +173,28 @@ a:hover::before{
 
 /* Contact Styles */
 .contact{
-    background-color: var(--background-color-final);
+    margin-block-start: 50vh;
     h1{
-	padding-inline-start: 3em;
+	text-align: center;
+	font-size: 5rem;
     }
     .contact-box{
-	padding: 5em;
-	display: grid;
-	grid-template-areas: 
-	"name name nothing other other "
-	"email email email other other"
-	"submit submit submit submit none"
-	"submit submit submit submit none"
-	"submit submit submit submit btn";
-	gap: 1em;
 
-	.email{
-		grid-area: email;
+	.contact-item{
+		margin-block: 3em;
+
+		&:not(.description){
+			border-radius: 3em;
+		}
 	}
-	.name{
-		grid-area: name;
-	}
-	.description{
-		grid-area: submit;
-	}
-	.submit-btn{
-		grid-area: btn;
-	}
+
+        margin-inline: 30vw;
+	background-color: var(--background-color-mid);
+	padding: 5em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
     }
 }
 
@@ -228,6 +223,13 @@ a:hover::before{
 
 
 /* Gallery Styles */
+
+.gallery-title{
+	min-width: 100%;
+	font-size:  5rem;
+	text-align: center;
+	padding-block-end: 10vh;
+}
 .card{
     max-width: 100%;
 }
@@ -241,7 +243,6 @@ a:hover::before{
     gap:.5rem;
     align-content: center;
     justify-content: center;
-    padding-block-end: 60vh;
 
     &:hover{
 	    img{
