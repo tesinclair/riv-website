@@ -99,11 +99,11 @@ a:hover::before{
     }
 
     h1 span{
-        animation-range: contain 10vh;
+        animation-range:  50% 60%;
     }
 
     p span{
-        animation-range: 60vh normal;
+        animation-range: 20% 50%;
     }
 
 
@@ -187,22 +187,35 @@ a:hover::before{
             border-bottom: 2px solid white;
             color: var(--font-color-primary);
             background-color: rgba(0, 0, 0, 0);
+            
+            &:not(input){
+                width: 60%;
+                height: 3vh;
+                margin-block-start: 13.8em;
+                transition: height 300ms ease, width 300ms ease, margin-block-start 300ms ease;
+
+                &:focus{
+                    height: 20vh;
+                    margin-block-start: 1em;
+                    width: 100%;
+                }
+            }
         }
 
         input{
             height: 2em;
-            width: 4em;
-            transition: width 300ms ease;
+            width: 10%;
             text-align: center;
+            transition: width 300ms ease;
+
+            &:focus{
+                width: 100%;
+            }
 
             &:autofill{
                 background-color: rgba(0, 0, 0, 0);
                 color: var(--font-color-primary);
 
-            }
-
-            &:focus{
-                width: 100%;
             }
         }
 
@@ -227,8 +240,8 @@ a:hover::before{
                 transition: width .5s ease;
             }
 
-            & :hover::before{
-                width:100%;
+            &:hover ::before{
+                width: 100vw;
             }
 
         }
@@ -277,6 +290,7 @@ a:hover::before{
     font-size:  5rem;
     text-align: center;
     padding-block-end: 10vh;
+    padding-block-start: 1em;
 }
 .card{
     max-width: 100%;
@@ -358,9 +372,17 @@ a:hover::before{
     grid-template-columns: repeat(3, 1fr);
     gap: 3em;
 
-    img{
-        height: 18em;
-        width: 15em;
+    .shop-element{
+        position: relative;
+        width: 8em;
+        aspect-ratio: 9/16;
+        outline: 3px solid lightgreen;
+        background-image: url("static/assets/card1.png");
+
+        img{
+            position: absolute;
+            opacity: 0;
+        }
     }
 
 }

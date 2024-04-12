@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="static/styles.css" rel="stylesheet">
-        <script type="module" src="static/main.js"></script>
+        <script type="module" src="static/main.js" defer></script>
         <title>Yuliy</title>
     </head>
     <body>
@@ -13,8 +13,8 @@
                 <h3>Yuliy</h3>
             </span>
             <ul>
-                <li><a change-text="Bio" href="#bio">
-                        Bio
+                <li><a change-text="JtA" href="#book">
+                        JtA
                     </a>
                 </li>
                 <li><a change-text="Gallery" href="#gallery">
@@ -51,8 +51,8 @@
                     <embed class="right" src="static/assets/card2.png" alt="book-timelapse">
                 </div>
             </section>
-            <h1 class="gallery-title"> Gallery </h1>
-            <section id="gallery" class="gallery">
+            <h1 id="gallery" class="gallery-title"> Gallery </h1>
+            <section class="gallery">
                 <img class="card" src="static/assets/card1.png" alt="card1">
                 <img class="card" src="static/assets/card2.png" alt="card2">
                 <img class="card" src="static/assets/card3.png" alt="card3">
@@ -64,7 +64,7 @@
             </section>
             <section id="contact" class="contact">
                 <h1>Contact</h1>
-                <form class="contact-box" action="/submit" method="get">
+                <form class="contact-box" action="/msg-submit" method="get">
                     <input autocomplete="off" class="contact-item email" type="email" name="email" value="" placeholder="Email..." >
                     <input autocomplete="off" class="contact-item name" type="text" name="name" value="" placeholder="Name..." >
                     <textarea class="contact-item description" name="desc" value="" rows="15" cols="50" placeholder="Description..."></textarea>

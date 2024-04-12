@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 
@@ -16,7 +16,8 @@ async def root(request: Request):
 
 @app.get("/msg-submit")
 async def submit(request: Request, email: str, name: str, desc: str):
-    return {'status': 200, 'message': 'OK'}
+    print(f"\n[SUBMIT] Email: {email} Name: {name} Description: {desc}\n")
+    return RedirectResponse("/#contact")
 
 @app.get("/shop")
 async def shop(request: Request):
