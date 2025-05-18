@@ -22,6 +22,9 @@ html{
 
 *{
     text-decoration: none;
+    box-style: border-box;
+    margin: 0;
+    padding: 0;
 }
 .content:not(.content){
     margin-inline:5em;
