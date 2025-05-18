@@ -11,7 +11,8 @@
 }
 html{
     margin: 0;
-    padding: 0;
+    padding-inline: 5svw;
+    padding-block: 5svh;
     overflow-x: hidden;
 
     *{
